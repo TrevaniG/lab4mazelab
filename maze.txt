@@ -1,0 +1,13 @@
+window.onload = function() {
+    var boundaries = document.querySelectorAll("div.boundary");
+    for (var i = 0; i < boundaries.length; i++) {
+        boundaries[i].onmouseover = onBoundary;
+    }
+};
+
+function onBoundary() {
+    var boundaries = document.querySelectorAll("div.boundary");
+    for (var i = 0; i < boundaries.length; i++) {
+        boundaries[i].style.backgroundColor = "#ff8888";
+    }
+} 
