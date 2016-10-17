@@ -1,0 +1,36 @@
+var loser = false; 
+
+window.onload = function() {
+    document.getElementById('start').onclick = startClicking;
+    document.getElementById('end').onmouseover = onEnd;
+    var boundaries = document.querySelectorAll('div.boundary');
+    for (var j = 0; j < boundaries.length; j++) {
+        boundaries[j].onmouseover = onBoundary;
+    }
+};
+
+function onBoundary() {
+    loser = true;
+    var boundaries = document.querySelectorAll('div.boundary');
+    for (var j = 0; j < boundaries.length; j++) {
+        boundaries[j].addClassName('youlose');
+
+    }
+}
+
+function startClicking() {
+    loser = false;
+    var boundaries = document.querySelectorAll('div.boundary');
+    for (var j = 0; j < boundaries.length; j++) {
+        boundaries[j].removeClassName('youlose');
+    }
+}
+
+function onEnd() {
+    if(loser) {
+        alert('I am sorry but you lost');
+    } else {
+        alert('Congrats you win!');
+    }
+}
+   
