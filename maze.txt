@@ -1,0 +1,36 @@
+var losing= false;
+
+window.onload=function(){
+  document.getElementById('start').onclick=startClicking;
+  document.getElementById('end').onmouseover=onEnd;
+  var boundaries= document.querySelectorAll('div.boundary');
+  for (var j=0;j<boundaries.length;j++){
+      boundaries[j].onmouseover=onBoundary;
+   }
+};
+
+function onBoundary(){
+   losing= true;
+   document.getElementById('status').textContent="You lost the game!";
+   var boundaries= document.querySelectorAll('div.boundary');
+   for (var j=0; j<boundaries.length; j++){
+      boundaries[j].addClassName('youlose');
+  }
+}
+
+function startClicking(){
+   losing=false;
+   document.getElementById('status').textContent='Go to the End!';
+   var boundaries=document.querySelectorAll('div.boundary');
+   for (var j=0; j<boundaries.length; j++){
+    boundaries[j].removeClassName('youlose');
+  }
+}
+
+function onEnd(){
+   if (!losing){
+   document.getElementById('status').textContent= 'You won the game!';
+  }
+}
+   
+ 
